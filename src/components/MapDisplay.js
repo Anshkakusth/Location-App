@@ -4,7 +4,7 @@ import leaf from "leaflet";
 
 function MapDisplay({ lat, lng }) {
   const mapRef = useRef(null);
-  const markerRef = useRef(null); // red moving marker
+  const markerRef = useRef(null);
   const prevLat = useRef(null);
   const prevLng = useRef(null);
   const prevMarkerRef = useRef(null);
@@ -45,7 +45,7 @@ function MapDisplay({ lat, lng }) {
     } else {
       mapRef.current.setView([lat, lng]);
 
-      if (prevLat.current !== null && prevLng.current !== null) {
+      if (prevLat.current !== null && prevLng.current !== null && ((prevLat.current !== lat || prevLng.current !== lng))) {
         if (prevMarkerRef.current) {
           mapRef.current.removeLayer(prevMarkerRef.current); // remove old previous marker
         }
