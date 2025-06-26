@@ -6,11 +6,15 @@ function App() {
   const [lat, setLat] = useState(28.6139);
   // State for longitude (default: New Delhi coordinates)
   const [lng, setLng] = useState(77.2088);
+  const [inputLat, setInputLat] = useState(lat);
+  const [inputLng, setInputLng] = useState(lng);
 
   // Function to update coordinates when submitted
   const handleCoordinatesSubmit = (lat, lng) => {
-    setLat(lat); // Update latitude
-    setLng(lng); // Update longitude
+    if (!isNaN(inputLat) && !isNaN(inputLng)) {
+      setLat(inputLat);
+      setLng(inputLng);
+    }
   };
 
   return (
@@ -20,15 +24,15 @@ function App() {
       {/* Input field for latitude */}
       <input
         type="number"
-        value={lat}
-        onChange={(e) => setLat(parseFloat(e.target.value))} // Convert input string to number
+        value={inputLat}
+        onChange={(e) => setInputLat(parseFloat(e.target.value))} // Convert input string to number
       />
 
       {/* Input field for longitude */}
       <input
         type="number"
-        value={lng}
-        onChange={(e) => setLng(parseFloat(e.target.value))} // Convert input string to number
+        value={inputLng}
+        onChange={(e) => setInputLng(parseFloat(e.target.value))} // Convert input string to number
       />
 
       {/* Button to submit coordinates */}
