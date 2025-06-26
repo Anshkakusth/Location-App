@@ -58,7 +58,8 @@ function MapDisplay({ lat, lng }) {
       style={{
         height: "400px",
         width: "80%",
-        margin: "0 auto"
+        margin: "0 auto",
+        marginTop: "20px"
       }}
     />
   );
